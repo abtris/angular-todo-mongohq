@@ -13,8 +13,8 @@ var Config = {
   },
   
   output: {
-    junit: "./reports/junit.xml",
-    cobertura: "./reports/cobertura.xml"
+    cobertura: "./reports/cobertura.xml",
+	junit: "./reports/junit.xml"
   }
     
 };

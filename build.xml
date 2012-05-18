@@ -32,4 +32,4 @@
                         <arg line="--config config.js" />
                 </exec>
         </target>
-         </project>
+</project>

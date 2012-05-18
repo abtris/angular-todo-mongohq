@@ -1,5 +1,5 @@
 
-var testData = [{"text":"new Todo", "done": false}];
+var testData = [{"text":"new Todo", "done": false}, {"text": "new Todo 2", "done": true}];
 
 describe('ToDo', function() {
   
@@ -35,6 +35,11 @@ describe('ToDo', function() {
       expect(scope.todos).toEqual(testData);
     });
 
+    it('remaining', function() {
+      scope.todos = testData;   
+      count = scope.remaining();         
+      expect(count).toEqual(1);
+    });
   });
 
 });
