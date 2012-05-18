@@ -20,8 +20,12 @@
                         <arg line="tmp/bin" />
                 </exec>
         </target>
-        
+
         <target name="run">
+                <exec executable="sh" failonerror="true">
+                        <arg line="phantomjs.runner.sh" />
+                        <arg line="junit_xml_reporter-build.html" />
+                </exec>
                 <exec executable="phantomjs" failonerror="true">
                         <arg line="coverage.js" />
                         <arg line="run" />
