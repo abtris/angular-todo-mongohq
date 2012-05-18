@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<title>AngularJS - Todo example app with Mongo integration</title>
+<meta charset="utf-8">
+<link rel="stylesheet" href="bootstrap.css">
+<script src="lib/angular-1.0.0rc9.js"></script>
+<script type="text/javascript" src="app/todo.js"></script>
+<style>
+body {
+  margin: 1em;
+}
+.done-true {
+  text-decoration: line-through;
+  color: grey;
+}
+</style>
+</head>
+<body>
+
+<div ng-app="todoApp">
+  <h2>Todo</h2>
+  <div ng-controller="TodoCtrl" ng-init="getAll()">
+    <span>{{remaining()}} of {{todos.length}} remaining</span>
+    [ <a href="" ng-click="archive()">archive</a> ]
+    <!-- [<a href="" ng-click="getAll()">get all from server</a>] -->
+    <ul class="unstyled">
+      <li ng-repeat="todo in todos">
+        <input type="checkbox" ng-model="todo.done">
+        <span class="done-{{todo.done}}">{{todo.text}}</span>
+      </li>
+    </ul>
+    <form ng-submit="addTodo()">
+      <input type="text" ng-model="todoText"  size="30"
+             placeholder="add new todo here">
+      <input class="btn-primary" type="submit" value="add">
+    </form>
+  </div>
+        
+</div>
+
+</body>
+</html>

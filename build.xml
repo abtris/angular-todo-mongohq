@@ -1,0 +1,31 @@
+<project name="build" basedir="." default="default">
+        
+        <target name="default">
+                <antcall target="prepare" />
+                <antcall target="coverage" />
+                <antcall target="run" />
+        </target>
+        
+        <target name="prepare">
+            <exec executable="phantomjs" failonerror="true">
+                        <arg line="coverage.js" />
+                        <arg line="prepare" />
+                        <arg line="--config config.js" />
+            </exec>
+        </target>
+        
+        <target name="coverage">
+                <exec executable="jscoverage" failonerror="true">
+                        <arg line="tmp/src" />
+                        <arg line="tmp/bin" />
+                </exec>
+        </target>
+        
+        <target name="run">
+                <exec executable="phantomjs" failonerror="true">
+                        <arg line="coverage.js" />
+                        <arg line="run" />
+                        <arg line="--config config.js" />
+                </exec>
+        </target>
+         </project>

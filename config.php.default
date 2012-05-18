@@ -1,0 +1,4 @@
+<?php
+
+define('MONGOHQ_API_KEY', 'XXXXXXX'); 
+
