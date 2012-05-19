@@ -28,16 +28,30 @@ Example aplication ToDo App with [MongoHQ](https://mongohq.com) backend, integra
         echo file_get_contents($url);
     }
 
-## Coffee-script compilation
+## [CoffeeScript](http://coffeescript.org/) compilation
     coffee -c app/todo.coffee
+    
+for development use:
+
+    coffee -wc app/todo.coffee
 
 ## Run unit test in PhantomJS and generate junit.xml
     phantomjs.runner.sh junit_xml_reporter-build.html
     
-## Code coverage (not working corectly now)
-    ant
+## Code coverage 
 
-## Make documentation v JSDoc
+I used jscoverage from this [project](https://github.com/moorinteractive/phantomjs-qunit-junit-jscoverage-cobertura.git) and make some changes to replace qunit with jasmine.
+
+    ant build.xml
+
+## Make documentation v [JSDoc](http://code.google.com/p/jsdoc-toolkit/)
     jsdoc todo.js -t=/usr/local/Cellar/jsdoc-toolkit/2.3.2/libexec/jsdoc-toolkit/templates/jsdoc -d=reports/doc
+    
+## Make documentation in [Docco](http://jashkenas.github.com/docco/)
+    docco app/todo.coffee
+    
+## Jenkins
+
+![jenkins](docs/angular-todo-mongohq.jpg)    
     
     
