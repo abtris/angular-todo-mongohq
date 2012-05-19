@@ -1,21 +1,18 @@
-###*
- * @namespace todoApp
-### 
+# Angular Module
 module = angular.module('todoApp', [])
-###*
- * @class TodoCtrl
- * @param $scope
- * @param $http
-###
+# Controller TodoCtl
 module.controller 'TodoCtrl',  ($scope, $http) ->
   $scope.todos = [];
+  # Proxy to MongoHQ
   $scope.url = "proxy.php"
+  # Get all todos from mongodb
   $scope.getAll = ->
     $http.get($scope.url).success($scope.getCallback)
     return
   $scope.getCallback = (data, status, headers, config) ->    
     $scope.todos = data
     return
+  # Add new todo  
   $scope.addTodo = ->
     $http.defaults.headers.post['Content-Type']='application/json'
     $http.defaults.headers.post['Access-Control-Allow-Origin'] = 'http://angular.dev https://api.mongohq.com'
@@ -25,12 +22,14 @@ module.controller 'TodoCtrl',  ($scope, $http) ->
     $scope.todos.push(todo)
     $http.post($scope.url, $scope.data).success($scope.successCallback)
     return
+  # Archive todo  
   $scope.archive = ->
     oldTodos = $scope.todos
     $scope.todos = []
     angular.forEach oldTodos, (todo) ->
       if (!todo.done) then $scope.todos.push(todo)
     return
+  # Remaining todos  
   $scope.remaining = ->
     count = 0
     angular.forEach $scope.todos, (todo) ->

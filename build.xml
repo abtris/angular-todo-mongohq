@@ -40,6 +40,9 @@
                <arg line="-t=/usr/local/Cellar/jsdoc-toolkit/2.3.2/libexec/jsdoc-toolkit/templates/jsdoc" />
                <arg line="-d=reports/docs" />
             </exec>
+            <exec executable="/usr/local/bin/docco" failonerror="true">
+                <arg line="app/todo.coffee" />
+            </exec>
         </target>
         
 </project>
