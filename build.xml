@@ -36,7 +36,7 @@
         
         <target name="docs">
             <exec executable="jsdoc" failonerror="true">
-               <arg line="app/todo.js" />
+               <arg line="app/todo.manual.js" />
                <arg line="-t=/usr/local/Cellar/jsdoc-toolkit/2.3.2/libexec/jsdoc-toolkit/templates/jsdoc" />
                <arg line="-d=reports/docs" />
             </exec>
