@@ -52,6 +52,6 @@ I used jscoverage from this [project](https://github.com/moorinteractive/phantom
     
 ## Jenkins
 
-![jenkins](docs/angular-todo-mongohq.jpg)    
+![jenkins](https://github.com/abtris/angular-todo-mongohq/raw/master/docs/angular-todo-mongohq.jpg)    
     
     
