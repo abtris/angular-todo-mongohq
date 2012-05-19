@@ -1,20 +1,24 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<title>QUnit TestRunner</title>
-	<link rel="stylesheet" href="qunit.css" type="text/css" />
+    <meta charset="utf-8" />
+    <title>JUnit XML Reporter Spec</title>
+
+    <link rel="stylesheet" href="jasmine.css" type="text/css" />
+
+    <script type="text/javascript" src="jasmine.js"></script>
+    <script type="text/javascript" src="jasmine-html.js"></script>
+    <script type="text/javascript" src="jasmine.junit_reporter.js"></script>
+
+    {{ libScripts }}
+    {{ sourceScripts }}
+    {{ scripts }}
 </head>
 <body>
-	<h1 id="qunit-header">QUnit TestRunner</h1>
-	<h2 id="qunit-banner"></h2>
-	<div id="qunit-testrunner-toolbar"></div>
-	<h2 id="qunit-userAgent"></h2>
-	<ol id="qunit-tests"></ol>
-	<div id="qunit-fixture"></div>
-	<script type="text/javascript" src="qunit.js"></script>
-	<script type="text/javascript" src="qunit-coverage.js"></script>
-	{{ libScripts }}
-	{{ sourceScripts }}
-	{{ scripts }}
+    <script type="text/javascript">
+        jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+        jasmine.getEnv().addReporter(new jasmine.JUnitXmlReporter());
+        jasmine.getEnv().execute();
+    </script>
 </body>
 </html>
