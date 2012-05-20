@@ -2,6 +2,17 @@
 
 Using [Jenkins](http://jenkins-ci.org/) for continues integration with javascript.
 
+## Mac OS X
+
+For Jenkins you need Java and [Ant](http://ant.apache.org/). Ant can be replaced by make, rake, cake or another builder. In this example I'm using ant.
+
+    brew install jsdoc-toolkit jscoverage phantomjs node curl
+    
+    curl http://npmjs.org/install.sh | sh
+    
+    npm install -g docco coffee-script
+
+
 ## Javascript - AngularJS
 
 We using [AngularJS](http://angularjs.org/) and write unit tests in [Jasmine](http://pivotal.github.com/jasmine/).
@@ -42,13 +53,64 @@ for development use:
 
 I used jscoverage from this [project](https://github.com/moorinteractive/phantomjs-qunit-junit-jscoverage-cobertura.git) and make some changes to replace qunit with jasmine.
 
-    ant build.xml
-
 ## Make documentation v [JSDoc](http://code.google.com/p/jsdoc-toolkit/)
     jsdoc todo.js -t=/usr/local/Cellar/jsdoc-toolkit/2.3.2/libexec/jsdoc-toolkit/templates/jsdoc -d=reports/doc
     
 ## Make documentation in [Docco](http://jashkenas.github.com/docco/)
     docco app/todo.coffee
+
+## Ant script build.xml
+
+    <project name="build" basedir="." default="default">
+
+            <target name="default">
+                    <antcall target="prepare" />
+                    <antcall target="coverage" />
+                    <antcall target="run" />
+                    <antcall target="docs" />
+            </target>
+
+            <target name="prepare">
+                <exec executable="phantomjs" failonerror="true">
+                            <arg line="coverage.js" />
+                            <arg line="prepare" />
+                            <arg line="--config config.js" />
+                </exec>
+            </target>
+
+            <target name="coverage">
+                    <exec executable="jscoverage" failonerror="true">
+                            <arg line="tmp/src" />
+                            <arg line="tmp/bin" />
+                    </exec>
+            </target>
+
+            <target name="run">
+                    <exec executable="sh" failonerror="true">
+                            <arg line="phantomjs.runner.sh" />
+                            <arg line="junit_xml_reporter-build.html" />
+                    </exec>
+                    <exec executable="phantomjs" failonerror="true">
+                            <arg line="coverage.js" />
+                            <arg line="run" />
+                            <arg line="--config config.js" />
+                    </exec>
+            </target>
+
+            <target name="docs">
+                <exec executable="jsdoc" failonerror="true">
+                   <arg line="todo.manual.js" />
+                   <arg line="-t=/usr/local/Cellar/jsdoc-toolkit/2.3.2/libexec/jsdoc-toolkit/templates/jsdoc" />
+                   <arg line="-d=reports/docs" />
+                </exec>
+                <exec executable="/usr/local/bin/docco" failonerror="true">
+                    <arg line="app/todo.coffee" />
+                </exec>
+            </target>
+
+    </project>
+
+
     
 ## Jenkins
 
