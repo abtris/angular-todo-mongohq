@@ -40,11 +40,11 @@ Example aplication ToDo App with [MongoHQ](https://mongohq.com) backend, integra
     }
 
 ## [CoffeeScript](http://coffeescript.org/) compilation
-    coffee -c app/todo.coffee
+    coffee -c tests/todoSpec.coffee app/todo.coffee
     
 for development use:
 
-    coffee -wc app/todo.coffee
+    coffee -wc tests/todoSpec.coffee app/todo.coffee
 
 ## Run unit test in PhantomJS and generate junit.xml
     phantomjs.runner.sh junit_xml_reporter-build.html
