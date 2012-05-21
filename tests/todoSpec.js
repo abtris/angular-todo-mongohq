@@ -38,11 +38,16 @@
         $httpBackend.flush();
         return expect(scope.todos).toEqual(testData);
       });
-      return it('remaining', function() {
+      it('remaining', function() {
         var count;
         scope.todos = testData;
         count = scope.remaining();
         return expect(count).toEqual(1);
+      });
+      return it('archive', function() {
+        scope.todos = testData;
+        scope.archive();
+        return expect(scope.todos.length).toEqual(1);
       });
     });
   });

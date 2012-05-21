@@ -24,3 +24,7 @@ describe 'ToDo', ->
       scope.todos = testData;   
       count = scope.remaining()
       expect(count).toEqual(1)
+    it 'archive', ->
+      scope.todos = testData
+      scope.archive()
+      expect(scope.todos.length).toEqual(1)
