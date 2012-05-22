@@ -151,7 +151,7 @@ I used jscoverage from this [project](https://github.com/moorinteractive/phantom
 
 ## Ant script update for Linux:
 
-    There's only one change - jsdoc needs to be called different way
+There's only one change - jsdoc needs to be called different way:
 
     <target name="docs">
         <exec executable="java" failonerror="true">
