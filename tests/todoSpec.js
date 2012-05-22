@@ -2,7 +2,7 @@
 (function() {
 
   describe('ToDo', function() {
-    var testData;
+    var newTodo, testData;
     testData = [
       {
         "text": "new Todo",
@@ -10,6 +10,13 @@
       }, {
         "text": "new Todo 2",
         "done": true
+      }
+    ];
+    newTodo = [
+      {
+        "id": 1111,
+        "text": "new test Todo",
+        "done": false
       }
     ];
     return describe('TodoCtrl', function() {
@@ -23,7 +30,6 @@
           $httpBackend = _$httpBackend_;
           scope = $rootScope.$new();
           scope.todos = [];
-          $httpBackend.expectGET('proxy.php').respond(testData);
           return ctrl = $controller('TodoCtrl', {
             $scope: scope
           });
@@ -34,6 +40,7 @@
         return expect(scope.url).toEqual('proxy.php');
       });
       it('get all', function() {
+        $httpBackend.expectGET('proxy.php').respond(testData);
         scope.getAll();
         $httpBackend.flush();
         return expect(scope.todos).toEqual(testData);
@@ -44,10 +51,18 @@
         count = scope.remaining();
         return expect(count).toEqual(1);
       });
-      return it('archive', function() {
+      it('archive', function() {
         scope.todos = testData;
         scope.archive();
         return expect(scope.todos.length).toEqual(1);
+      });
+      return it('add todo', function() {
+        $httpBackend.expectPOST('proxy.php').respond(newTodo);
+        scope.todos = testData;
+        scope.todoText = "new test Todo";
+        scope.addTodo();
+        $httpBackend.flush();
+        return expect(scope.todos.length).toEqual(3);
       });
     });
   });

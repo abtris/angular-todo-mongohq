@@ -46,9 +46,7 @@
       });
       return count;
     };
-    $scope.successCallback = function() {
-      alert('11');
-    };
+    $scope.successCallback = function() {};
   });
 
 }).call(this);
