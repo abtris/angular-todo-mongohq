@@ -44,6 +44,11 @@ For Jenkins you need Java and [Ant](http://ant.apache.org/). Ant can be replaced
     --------
     yum install pygments
 
+    npm, docco, coffee-script
+    -------------------------
+    curl http://npmjs.org/install.sh | sh
+
+    npm install -g docco coffee-script
 
 
 ## Javascript - AngularJS
