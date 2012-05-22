@@ -16,24 +16,24 @@ For Jenkins you need Java and [Ant](http://ant.apache.org/). Ant can be replaced
 
     jsdoc-toolkit
     -------------
-    download zip archive from: [http://code.google.com/p/jsdoc-toolkit/downloads/list](http://code.google.com/p/jsdoc-toolkit/downloads/list)
+    download zip archive from: http://code.google.com/p/jsdoc-toolkit/downloads/list
     unpack
     move or copy to /usr/local/bin/
 
     jscoverage
     ----------
-    download preferred archive from: [http://siliconforks.com/jscoverage/download.html](http://siliconforks.com/jscoverage/download.html)
+    download preferred archive from: http://siliconforks.com/jscoverage/download.html
     unpack, compile and install
 
     phantomjs
     ---------
-    download preferred archive from: [http://code.google.com/p/phantomjs/downloads/list](http://code.google.com/p/phantomjs/downloads/list)
+    download preferred archive from: http://code.google.com/p/phantomjs/downloads/list
     unpack to selected destination
     link to /usr/local/bin: ln -s /path/to/download/bin/phantomjs /usr/local/bin/phantomjs
 
     node.js
     -------
-    download archive from: [nodejs.org](nodejs.org)
+    download archive from: http://nodejs.org
     unpack, compile and install
 
     curl
