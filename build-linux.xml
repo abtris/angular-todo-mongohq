@@ -1,0 +1,49 @@
+<project name="build" basedir="." default="default">
+
+    <target name="default">
+        <antcall target="prepare" />
+        <antcall target="coverage" />
+        <antcall target="run" />
+        <antcall target="docs" />
+    </target>
+
+    <target name="prepare">
+        <exec executable="phantomjs" failonerror="true">
+            <arg line="coverage.js" />
+            <arg line="prepare" />
+            <arg line="--config config.js" />
+        </exec>
+    </target>
+
+    <target name="coverage">
+        <exec executable="jscoverage" failonerror="true">
+            <arg line="tmp/src" />
+            <arg line="tmp/bin" />
+        </exec>
+    </target>
+
+    <target name="run">
+        <exec executable="sh" failonerror="true">
+            <arg line="phantomjs.runner.sh" />
+            <arg line="junit_xml_reporter-build.html" />
+        </exec>
+        <exec executable="phantomjs" failonerror="true">
+            <arg line="coverage.js" />
+            <arg line="run" />
+            <arg line="--config config.js" />
+        </exec>
+    </target>
+
+    <target name="docs">
+        <exec executable="java" failonerror="true">
+            <arg line="-jar /usr/local/bin/jsdoc-toolkit/jsrun.jar /usr/local/bin/jsdoc-toolkit/app/run.js" />
+            <arg line="-t=/usr/local/bin/jsdoc-toolkit/templates/jsdoc" />
+            <arg line="-d=reports/docs" />
+            <arg line="todo.manual.js" />
+        </exec>
+        <exec executable="/usr/local/bin/docco" failonerror="true">
+            <arg line="app/todo.coffee" />
+        </exec>
+    </target>
+
+</project>
