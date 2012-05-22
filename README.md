@@ -1,6 +1,6 @@
 # CI - with Jenkins
 
-Using [Jenkins](http://jenkins-ci.org/) for continues integration with javascript.
+Using [Jenkins](http://jenkins-ci.org/) for continues integration with javascript. In jenkins you should install plugins for git, cobertura (code coverage), html publisher (for docco documentation).
 
 ## Mac OS X
 
@@ -14,6 +14,21 @@ For Jenkins you need Java and [Ant](http://ant.apache.org/). Ant can be replaced
 
     npm install -g docco coffee-script
 
+
+## Jenkins plugin install via jenkins-cli
+
+    wget http://localhost:8080/jnlpJars/jenkins-cli.jar
+
+    java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin htmlpublisher
+    java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin cobertura    
+
+    java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin git
+    java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin greenballs
+    java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin jobConfigHistory
+    java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin build-pipeline-plugin
+    java -jar jenkins-cli.jar -s http://localhost:8080 install-plugin configurationslicing
+    
+    java -jar jenkins-cli.jar -s http://localhost:8080 safe-restart
 
 ## Javascript - AngularJS
 
