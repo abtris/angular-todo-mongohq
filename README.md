@@ -93,9 +93,11 @@ I used jscoverage from this [project](https://github.com/moorinteractive/phantom
 
 ## Make documentation v [JSDoc](http://code.google.com/p/jsdoc-toolkit/)
 Mac OS X
+
     jsdoc todo.js -t=/usr/local/Cellar/jsdoc-toolkit/2.3.2/libexec/jsdoc-toolkit/templates/jsdoc -d=reports/doc
 
 Linux
+
     java -jar /usr/local/bin/jsdoc-toolkit/jsrun.jar /usr/local/bin/jsdoc-toolkit/app/run.js
          -t=/usr/local/bin/jsdoc-toolkit/templates/jsdoc -d=reports/docs todo.manual.js
 
