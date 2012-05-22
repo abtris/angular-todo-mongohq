@@ -42,6 +42,7 @@
             </exec>
             <exec executable="/usr/local/bin/docco" failonerror="true">
                 <arg line="app/todo.coffee" />
+                <arg line="tests/todoSpec.coffee" />
             </exec>
         </target>
         

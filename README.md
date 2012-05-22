@@ -10,6 +10,8 @@ For Jenkins you need Java and [Ant](http://ant.apache.org/). Ant can be replaced
     
     curl http://npmjs.org/install.sh | sh
     
+    easy_install Pygments
+
     npm install -g docco coffee-script
 
 
