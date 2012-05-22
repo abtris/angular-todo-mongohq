@@ -40,8 +40,8 @@ For Jenkins you need Java and [Ant](http://ant.apache.org/). Ant can be replaced
     ----
     yum install curl
 
-    pygments - required for docco!
-    --------
+    pygments - REQUIRED FOR docco!
+    -----------------------------
     yum install pygments
 
     npm, docco, coffee-script
@@ -149,6 +149,21 @@ I used jscoverage from this [project](https://github.com/moorinteractive/phantom
     </project>
 
 
+## Ant script update for Linux:
+
+    There's only one change - jsdoc needs to be called different way
+
+    <target name="docs">
+        <exec executable="java" failonerror="true">
+            <arg line="-jar /usr/local/bin/jsdoc-toolkit/jsrun.jar /usr/local/bin/jsdoc-toolkit/app/run.js" />
+            <arg line="-t=/usr/local/bin/jsdoc-toolkit/templates/jsdoc" />
+            <arg line="-d=reports/docs" />
+            <arg line="todo.manual.js" />
+        </exec>
+        <exec executable="/usr/local/bin/docco" failonerror="true">
+            <arg line="app/todo.coffee" />
+        </exec>
+    </target>
     
 ## Jenkins
 
