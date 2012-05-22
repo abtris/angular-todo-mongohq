@@ -131,6 +131,11 @@ I used jscoverage from this [project](https://github.com/moorinteractive/phantom
     
 ## Jenkins
 
+
 ![jenkins](https://github.com/abtris/angular-todo-mongohq/raw/master/docs/angular-todo-mongohq.jpg)    
+
+### Jenkins configuration
+
+![jenkins](https://github.com/abtris/angular-todo-mongohq/raw/master/docs/angular-todo-mongohq-configuration.jpg)
     
     
