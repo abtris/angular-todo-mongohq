@@ -98,8 +98,7 @@ Mac OS X
 
 Linux
 
-    java -jar /usr/local/bin/jsdoc-toolkit/jsrun.jar /usr/local/bin/jsdoc-toolkit/app/run.js
-         -t=/usr/local/bin/jsdoc-toolkit/templates/jsdoc -d=reports/docs todo.manual.js
+    java -jar /usr/local/bin/jsdoc-toolkit/jsrun.jar /usr/local/bin/jsdoc-toolkit/app/run.js -t=/usr/local/bin/jsdoc-toolkit/templates/jsdoc -d=reports/docs todo.manual.js
 
     
 ## Make documentation in [Docco](http://jashkenas.github.com/docco/)
