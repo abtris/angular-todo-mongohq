@@ -35,8 +35,7 @@ module.controller 'TodoCtrl',  ($scope, $http) ->
     angular.forEach $scope.todos, (todo) ->
       if todo.done then count += 1
     return count  
-  $scope.successCallback = ->
-    alert '11'
+  $scope.successCallback = ->    
     return
 
   return
