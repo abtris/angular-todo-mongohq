@@ -15,6 +15,7 @@ describe 'ToDo', ->
         scope = $rootScope.$new()
         scope.todos = []                
         ctrl = $controller('TodoCtrl', {$scope: scope})
+        return
     # Init    
     it 'should todos at start will be empty', ->
       expect(scope.todos).toBeDefined()      

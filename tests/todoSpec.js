@@ -30,7 +30,7 @@
           $httpBackend = _$httpBackend_;
           scope = $rootScope.$new();
           scope.todos = [];
-          return ctrl = $controller('TodoCtrl', {
+          ctrl = $controller('TodoCtrl', {
             $scope: scope
           });
         });
