@@ -1,5 +1,6 @@
 *.iml
 .idea
+node_modules
 tmp
 cobertura.xml
 junit.xml

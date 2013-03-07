@@ -1,0 +1,23 @@
+{
+  "name": "angular-todo-mongohq",
+  "version": "0.0.2",
+  "description": "TODO app",
+  "main": "config.js",
+  "directories": {
+    "doc": "docs",
+    "test": "tests"
+  },
+  "dependencies": {
+    "docco": "~0.4.0",
+    "coffee-script": "~1.6.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/abtris/angular-todo-mongohq.git"
+  },
+  "author": "",
+  "license": "BSD"
+}
