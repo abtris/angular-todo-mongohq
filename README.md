@@ -70,7 +70,7 @@ For Jenkins you need Java and [Ant](http://ant.apache.org/). Ant can be replaced
 
 ## Javascript - AngularJS
 
-We using [AngularJS](http://angularjs.org/) and write unit tests in [Jasmine](http://pivotal.github.com/jasmine/).
+We using [AngularJS](http://angularjs.org/) and write unit tests in [Jasmine](https://jasmine.github.io/).
 
 Example aplication ToDo App with [MongoHQ](https://mongohq.com) backend, integration via proxy.php
 
